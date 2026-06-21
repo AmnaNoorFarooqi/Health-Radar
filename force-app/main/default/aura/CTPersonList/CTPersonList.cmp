@@ -1,0 +1,19 @@
+<aura:component controller="CTPersonController" implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <aura:attribute name="data" type="Object" />
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="selectedRows" type="List" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:CTUpdateStatusToRedEvent" action="{!c.handleStatusUpdateToRed}" />
+    <aura:registerEvent name="personSelectedEvent" type="c:CTPersonSelectedEvent" />
+    <lightning:card title="">
+        <div class="slds-box slds-theme_default">
+
+            <div class="slds-text-heading_small slds-m-bottom_small" style="font-weight: bold;">
+                Recent Updates
+            </div>
+            <lightning:datatable columns="{!v.columns}" data="{!v.data}" keyField="Id" hideCheckboxColumn="true"
+                selectedRows="{!v.selectedRows}" onrowaction="{!c.handleRowAction}"  />
+        </div>
+    </lightning:card>
+
+</aura:component>

@@ -1,0 +1,1 @@
+<aura:event type="APPLICATION" description="Notify list to refresh after DML update" />

@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="Pass selected row data to details panel">
+    <aura:attribute name="selectedRecord" type="Object"/>
+</aura:event>

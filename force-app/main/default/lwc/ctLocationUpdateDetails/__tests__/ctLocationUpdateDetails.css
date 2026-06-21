@@ -1,0 +1,19 @@
+/* Card ke styles settings */
+.form-card-container article.slds-card {
+    border: none !important;
+}
+
+/* Jab stretch lagta hai to button ko styling dene ka standard tareeqa */
+lightning-button[stretch] {
+    display: block;
+    width: 100%;
+}
+
+/* Button ke padding aur curves ko mota aur attractive karne ke liye */
+lightning-button button.slds-button {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    border-radius: 15px !important;
+}

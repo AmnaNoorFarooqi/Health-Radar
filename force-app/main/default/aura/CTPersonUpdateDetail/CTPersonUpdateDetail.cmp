@@ -1,0 +1,46 @@
+<aura:component controller="CTPersonController" implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <aura:attribute name="selectedRecord" type="Object" />
+    <aura:registerEvent name="updateStatusToRed" type="c:CTUpdateStatusToRedEvent" />
+    <aura:handler event="c:CTPersonSelectedEvent" action="{!c.handlePersonSelected}" />
+    <lightning:card>
+        <aura:if isTrue="{!not(empty(v.selectedRecord))}">
+            <div class="slds-box slds-theme_default" style="border-top: 10px solid orange;">
+
+                <div class="slds-form-element slds-m-bottom_small">
+                    <label class="slds-form-element__label">Name</label>
+                    <div class="slds-form-element__control slds-text-heading_small">
+                        {!v.selectedRecord.Name__c}
+                    </div>
+                </div>
+
+                <div class="slds-form-element slds-m-bottom_small">
+                    <label class="slds-form-element__label">Mobile</label>
+                    <div class="slds-text-color_weak">{!v.selectedRecord.Phone__c}</div>
+                </div>
+
+                <div class="slds-form-element slds-m-bottom_small">
+                    <label class="slds-form-element__label">Token</label>
+                    <div class="slds-truncate">{!v.selectedRecord.Token__c}</div>
+                </div>
+
+                <div class="slds-form-element slds-m-bottom_medium">
+                    <label class="slds-form-element__label">Health Status</label>
+                    <div>**{!v.selectedRecord.Status__c}**</div>
+                </div>
+                <div class="slds-form-element slds-m-bottom_medium">
+                    <label class="slds-form-element__label">Status Update Date</label>
+                    <div>**{!v.selectedRecord.Status_Update_Date__c}**</div>
+                </div>
+
+                <lightning:button label="UPDATE STATUS TO RED" variant="destructive" class="slds-size_full"
+                    onclick="{!c.updateStatusToRed}" />
+            </div>
+
+            <aura:set attribute="else">
+                <div class="slds-align_absolute-center slds-box slds-theme_shade" style="height: 200px;">
+                    Click any of the records to see details here..!
+                </div>
+            </aura:set>
+        </aura:if>
+    </lightning:card>
+</aura:component>

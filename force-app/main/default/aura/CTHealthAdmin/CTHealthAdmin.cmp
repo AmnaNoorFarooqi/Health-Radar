@@ -1,0 +1,105 @@
+<aura:component controller="CTPersonController" implements="force:appHostable,flexipage:availableForAllPageTypes"
+    access="global">
+    <aura:attribute name="selectedRecord" type="Object" />
+    <aura:attribute name="Green" type="integer" default="0" />
+    <aura:attribute name="Yellow" type="integer" default="0" />
+    <aura:attribute name="Orange" type="integer" default="0" />
+    <aura:attribute name="Red" type="integer" default="0" />
+
+    <aura:handler event="c:CTUpdateStatusToRedEvent" action="{!c.handleRefresh}" />
+    <aura:handler event="force:refreshView" action="{!c.handleRefresh}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:card title="Health Admin Dashboard">
+        <div class="slds-page-header slds-page-header_record-home">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <div class="slds-media">
+                        <div class="slds-media__figure">
+                            <span>
+
+                                <lightning:icon iconName="utility:queue" alternativeText="Contact Tracing"
+                                    title="Contact Tracing" />
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title">
+                                    <h1>
+                                        <span>Contact Tracing</span>
+                                        <span class="slds-page-header__title slds-truncate" title="Person View">Person
+                                            View</span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-page-header__col-actions">
+                    <div class="slds-page-header__controls">
+                        <div class="slds-page-header__control">
+                            <ul class="slds-button-group-list">
+                                <li>
+                                    <lightning:button label="Add New" variant="neutral" onclick="{!c.clickNew}" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-page-header__row slds-page-header__row_gutters">
+                <div class="slds-page-header__col-details">
+                    <ul class="slds-page-header__detail-row">
+                        <li class="slds-page-header__detail-block">
+                            <div class="" title="Field 1">Green</div>
+                            <div class="" title="">{!v.Green}</div>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <div class="" title="Field 2">Yellow</div>
+                            <div class="" title="">{!v.Yellow} </div>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <div class="" title="Field 3">Orange</div>
+                            <div class="" title="">{!v.Orange}</div>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <div class="" title="Field 4">Red</div>
+                            <div class="" title="">{!v.Red}</div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </lightning:card>
+    <lightning:card>
+        <lightning:tabset variant="vertical">
+            <lightning:tab label="Person View">
+
+                <lightning:layout multipleRows="true">
+                    <lightning:layoutItem size="8" padding="around-small">
+                        <c:CTPersonList />
+
+                    </lightning:layoutItem>
+
+                    <lightning:layoutItem size="4" padding="around-small">
+                        <c:CTPersonUpdateDetail />
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:tab>
+
+            <lightning:tab label="Location View">
+                <lightning:layout multipleRows="true">
+                    <lightning:layoutItem size="8" padding="around-small">
+                        <c:ctLocationView aura:id="locationDatatable"/>
+                        
+                    </lightning:layoutItem>
+                    
+                    <lightning:layoutItem size="4" padding="around-small">
+                        <c:ctLocationUpdateDetails onlocationadded="{!c.handleLocationAdded}"/>
+                    </lightning:layoutItem>
+                </lightning:layout>
+
+            </lightning:tab>
+        </lightning:tabset>
+    </lightning:card>
+</aura:component>
