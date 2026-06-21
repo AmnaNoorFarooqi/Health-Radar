@@ -1,18 +1,26 @@
-# Salesforce DX Project: Next Steps
+# Health Radar
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Health Radar is a Salesforce-based health monitoring application designed to track and manage health safety compliance across multiple locations. The system provides real-time visibility into individual health statuses (Green, Yellow, Orange, and Red), helping administrators quickly identify high-risk visitors and take immediate action.
 
-## How Do You Plan to Deploy Your Changes?
+## Features
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+* Real-time health status tracking
+* Dynamic health compliance dashboard
+* Location management
+* High-risk visitor identification
+* Instant sanitization workflows
+* Automated data updates without page refresh
+* Aura and Lightning Web Components (LWC) integration
 
-## Configure Your Salesforce DX Project
+## Technologies Used
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+* Salesforce Platform
+* Apex
+* Lightning Web Components (LWC)
+* Aura Components
+* SOQL
+* Salesforce Flows
 
-## Read All About It
+## Business Value
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+Health Radar helps organizations such as hospitals, offices, educational institutions, and corporate facilities monitor health risks, improve safety compliance, and respond quickly to potential outbreaks.
